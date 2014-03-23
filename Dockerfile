@@ -24,6 +24,7 @@ RUN apt-get install -y python-software-properties && \
 
 #Maven
 RUN curl http://www.bizdirusa.com/mirrors/apache/maven/maven-3/3.2.1/binaries/apache-maven-3.2.1-bin.tar.gz | tar xz
+RUN ln -s /apache-maven-3.2.1/bin/mvn /usr/local/bin/mvn
 
 #Ruby
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y ruby1.9.1
@@ -40,9 +41,7 @@ RUN gem install rest-client net-scp
 #Loom
 RUN git clone http://github.com/continuuity/loom.git
 RUN cd loom/standalone && \
-    /apache-maven-3.2.1/bin/mvn clean 
-RUN cd loom/standalone && \
-    /apache-maven-3.2.1/bin/mvn -Dmaven.test.skip=true package assembly:single && \
+    mvn -Dmaven.test.skip=true package assembly:single && \
     unzip target/loom-0.9.5-SNAPSHOT-standalone.zip && \
     mv loom-0.9.5-SNAPSHOT-standalone /opt/loom && \
     rm -rf target
