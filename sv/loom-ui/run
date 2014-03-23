@@ -1,0 +1,5 @@
+#!/bin/sh
+sv start loom-server || exit 1
+
+exec 2>&1
+exec node /opt/loom/ui/server.js --env=production --loomhost=http://localhost:55054 --port=8100 

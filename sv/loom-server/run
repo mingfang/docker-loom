@@ -1,0 +1,3 @@
+#!/bin/sh
+exec 2>&1
+exec java -Xmx3072m -classpath '/opt/loom/server/lib/*:/etc/loom/conf' com.continuuity.loom.runtime.LoomServerMain 

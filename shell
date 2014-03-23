@@ -1,0 +1,1 @@
+docker run -v `pwd`:/docker -v `pwd`/providers:/opt/loom/provisioner/daemon/plugins/providers -p 8100:8100 -i -t loom /bin/bash
