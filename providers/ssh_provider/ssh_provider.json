@@ -1,0 +1,31 @@
+{
+    "name": "ssh",
+    "description": "ssh provider",
+    "providertypes": [ "ssh" ],
+    "ssh": {
+        "name": "ssh",
+        "classname": "SshProvider",
+        "parameters": {
+            "admin": {
+                "fields": {
+                    "ssh_username": {
+                        "label": "User",
+                        "type": "text",
+                        "tip": "Your ssh user name"
+                    },
+                    "ssh_password": {
+                        "label": "Password",
+                        "type": "password",
+                        "tip": "Your ssh password"
+                    }
+                },
+                "required": [
+                    [
+                        "ssh_username",
+                        "ssh_password"
+                    ]
+                ]
+            }
+        }
+    }
+}
